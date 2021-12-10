@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <odoo>
+        <record id="prop_properties_menu_root" model="ir.ui.menu">
+            <field name="action" ref="prop_properties_action"/>
+            <field name="active" eval="True"/>
+            <field name="name">Biens et Constructions</field>
+            <field name="sequence">10</field>
+            <field name="web_icon">liseo_property,static/description/icon.png</field>
+        </record>
+
+        <record id="prop_properties_menu" model="ir.ui.menu">
+            <field name="action" ref="prop_properties_action"/>
+            <field name="active" eval="True"/>
+            <field name="name">Gestion des biens</field>
+            <field name="sequence">5</field>
+            <field name="parent_id" ref="prop_properties_menu_root"/>
+        </record>
+
+        <record id="prop_jobs_menu" model="ir.ui.menu">
+            <field name="action" ref="prop_jobs_action"/>
+            <field name="active" eval="True"/>
+            <field name="name">Gestion des postes</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="prop_properties_menu_root"/>
+        </record>
+        <record id="prop_config_menu" model="ir.ui.menu">
+            <field name="active" eval="True"/>
+            <field name="name">Configuration</field>
+            <field name="sequence">100</field>
+            <field name="parent_id" ref="prop_properties_menu_root"/>
+        </record>
+        <record id="prop_config_jobs_templates_menu" model="ir.ui.menu">
+            <field name="action" ref="prop_jobs_templates_action"/>
+            <field name="active" eval="True"/>
+            <field name="name">Modèles de postes</field>
+            <field name="sequence">10</field>
+            <field name="parent_id" ref="prop_config_menu"/>
+        </record>
+        <record id="prop_charges_menu" model="ir.ui.menu">
+            <field name="action" ref="prop_charges_action"/>
+            <field name="active" eval="True"/>
+            <field name="name">Gestion des achats et frais</field>
+            <field name="sequence">20</field>
+            <field name="parent_id" ref="prop_properties_menu_root"/>
+        </record>
+    </odoo>

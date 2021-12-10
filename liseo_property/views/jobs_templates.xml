@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <odoo>
+        <record id="prop_jobs_templates_view_tree" model="ir.ui.view">
+            <field name="name">Modèles de postes</field>
+            <field name="model">prop.templates</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="prop_jobs_templates_view_form" model="ir.ui.view">
+            <field name="name">Formulaire modèles de postes</field>
+            <field name="model">prop.templates</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <fiend name="sequence"/>
+                            </group>
+
+                            <group>
+
+                            </group>
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+<!--        <record id="prop_properties_view_kanban" model="ir.ui.view">-->
+<!--        <field name="model">prop.properties</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <kanban default_group_by="stage" class="o_kanban_small_column">-->
+<!--                <field name="name"/>-->
+<!--                <templates>-->
+<!--                    <t t-name="kanban-box">-->
+<!--                        <div class="oe_kanban_card oe_kanban_global_click o_has_icon">-->
+<!--                            <div class="o_primary">-->
+<!--                                <strong><a type="open"><field name="name"/></a></strong>-->
+<!--                            </div>-->
+<!--                            <field name="type" widget="label_selection"/>-->
+<!--                          <div class="o_kanban_record_bottom">-->
+<!--                            <div class="oe_kanban_bottom_left" style="font-size:10px">-->
+<!--                              <field name="street"/><span> - </span><field name="cp"/> <field name="city"/>-->
+<!--                            </div>-->
+<!--                            <div class="oe_kanban_bottom_right">-->
+<!--                            </div>-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                    </t>-->
+<!--                </templates>-->
+<!--            </kanban>-->
+<!--        </field>-->
+<!--    </record>-->
+
+        <record id='prop_jobs_templates_action' model='ir.actions.act_window'>
+            <field name="name">Liste des postes</field>
+            <field name="res_model">prop.templates</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </odoo>

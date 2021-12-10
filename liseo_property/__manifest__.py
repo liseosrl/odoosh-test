@@ -1,0 +1,28 @@
+{
+    'name': 'Liseo - Immo',
+    'summary': 'Suivi de la construction et de la gestion des biens',
+    'description': "",
+    'category': 'Accounting',
+    'installable': True,
+    'application': True,
+    'author': 'SRL Liseo',
+    'website': 'http://www.liseo.be',
+    'version': '14.0.1',
+    'depends': ['base', 'sale_management'],
+    'data': [
+        'views/properties.xml',
+        'views/jobs.xml',
+        'views/jobs_templates.xml',
+        'views/menus.xml',
+        'views/res_partner.xml',
+        'views/credit.xml',
+        'views/account_move.xml',
+        'security/ir.model.access.csv',
+        'data/sequences.xml',
+        'data/jobs.xml',
+        'data/journals.xml',
+        'data/products.xml',
+        'data/automated_actions.xml',
+    ],
+
+}

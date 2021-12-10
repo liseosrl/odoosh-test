@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <odoo>
+        <record id="account_move_form_inherited" model="ir.ui.view">
+            <field name="name">account.move.form.inherited</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <div name="journal_div" position="before">
+                    <field name="move_type"/>
+                    <field name="attachment_ids" widget="many2many_binary"/>
+
+                </div>
+
+                <field name="payment_reference" position="after">
+                    <field name="property_id" invisible="1"/>
+                    <field name="other_property_id" attrs="{'invisible': [('property_id', '!=', False)]}"/>
+                </field>
+            </field>
+        </record>
+    </odoo>

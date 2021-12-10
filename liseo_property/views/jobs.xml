@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <odoo>
+        <record id="prop_jobs_view_tree" model="ir.ui.view">
+            <field name="name">Liste des postes</field>
+            <field name="model">prop.jobs</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="name"/>
+                    <field name="property_id" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                    <field name="template_id" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                    <field name="supplier_id"
+                                               context="{'default_is_supplier': True}"
+                                               domain="[('is_supplier', '=', True)]"/>
+                    <field name="initial_budget"/>
+                    <field name="real_cost"/>
+                    <field name="stage"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="prop_jobs_view_form" model="ir.ui.view">
+            <field name="name">Formulaire postes</field>
+            <field name="model">prop.jobs</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <header>
+                            <field widget="statusbar" options="{'clickable': '1'}" name="stage"/>
+                        </header>
+                        <div class="oe_title pr-0">
+                            <h2>
+                                <field name="name"/>
+                            </h2>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="property_id"/>
+                                <field name="supplier_id"
+                                               context="{'default_is_supplier': True}"
+                                               domain="[('is_supplier', '=', True)]"/>
+                                <field name="template_id" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                            </group>
+
+                            <group>
+                                <field name="initial_budget"/>
+                                <field name="real_cost"/>
+                            </group>
+
+                        </group>
+                        <group>
+                            <field name="attachment_ids" widget="many2many_binary"/>
+                        </group>
+
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+<!--        <record id="prop_properties_view_kanban" model="ir.ui.view">-->
+<!--        <field name="model">prop.properties</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <kanban default_group_by="stage" class="o_kanban_small_column">-->
+<!--                <field name="name"/>-->
+<!--                <templates>-->
+<!--                    <t t-name="kanban-box">-->
+<!--                        <div class="oe_kanban_card oe_kanban_global_click o_has_icon">-->
+<!--                            <div class="o_primary">-->
+<!--                                <strong><a type="open"><field name="name"/></a></strong>-->
+<!--                            </div>-->
+<!--                            <field name="type" widget="label_selection"/>-->
+<!--                          <div class="o_kanban_record_bottom">-->
+<!--                            <div class="oe_kanban_bottom_left" style="font-size:10px">-->
+<!--                              <field name="street"/><span> - </span><field name="cp"/> <field name="city"/>-->
+<!--                            </div>-->
+<!--                            <div class="oe_kanban_bottom_right">-->
+<!--                            </div>-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                    </t>-->
+<!--                </templates>-->
+<!--            </kanban>-->
+<!--        </field>-->
+<!--    </record>-->
+        <record id="prop_jobs_view_search" model="ir.ui.view">
+            <field name="name">prop.jobs.search</field>
+            <field name="model">prop.jobs</field>
+            <field name="arch" type="xml">
+                <search string="Search Jobs">
+                    <group expand="0" name="group_by" string="Group By">
+                        <filter name="property" string="Grouper par bien" domain="[]" context="{'group_by' : 'property_id'}"/>
+                        <filter name="supplier" string="Grouper par fournisseur" domain="[]" context="{'group_by' : 'supplier_id'}"/>
+                        <filter name="stage" string="Grouper par statut" domain="[]" context="{'group_by' : 'stage'}"/>
+                        <filter name="job" string="Grouper par poste" domain="[]" context="{'group_by' : 'template_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="prop_charges_view_tree" model="ir.ui.view">
+            <field name="name">Liste des achats et frais</field>
+            <field name="model">prop.charges</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="property_id" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                    <field name="supplier_id"
+                                               context="{'default_is_supplier': True}"
+                                               domain="[('is_supplier', '=', True)]"/>
+                    <field name="cost"/>
+                    <field name="invoiced"/>
+                    <field name="paid"/>
+                </tree>
+            </field>
+        </record>
+        <record id="prop_charges_view_search" model="ir.ui.view">
+            <field name="name">prop.charges.search</field>
+            <field name="model">prop.charges</field>
+            <field name="arch" type="xml">
+                <search string="Search Jobs">
+                    <group expand="0" name="group_by" string="Group By">
+                        <filter name="property" string="Grouper par bien" domain="[]" context="{'group_by' : 'property_id'}"/>
+                        <filter name="supplier" string="Grouper par fournisseur" domain="[]" context="{'group_by' : 'supplier_id'}"/>
+                        <filter name="invoiced" string="Grouper par statut" domain="[]" context="{'group_by' : 'invoiced'}"/>
+                        <filter name="paid" string="Grouper par poste" domain="[]" context="{'group_by' : 'paid'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id='prop_jobs_action' model='ir.actions.act_window'>
+            <field name="name">Liste des postes</field>
+            <field name="res_model">prop.jobs</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{"search_default_property":1}</field>
+        </record>
+
+        <record id='prop_charges_action' model='ir.actions.act_window'>
+            <field name="name">Liste des achats et frais</field>
+            <field name="res_model">prop.charges</field>
+            <field name="view_mode">tree</field>
+            <field name="context">{"search_default_property":1}</field>
+        </record>
+    </odoo>

@@ -1,0 +1,16 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_properties_admin,access.properties.admin,model_prop_properties,base.group_system,1,1,1,1
+access_properties_poweruser,access.properties.poweruser,model_prop_properties,base.group_user,1,1,1,1
+access_properties_user,access.properties.user,model_prop_properties,base.group_user,1,1,1,1
+access_jobs_admin,access.jobs.admin,model_prop_jobs,base.group_system,1,1,1,1
+access_jobs_poweruser,access.jobs.poweruser,model_prop_jobs,base.group_user,1,1,1,1
+access_jobs_user,access.jobs.user,model_prop_jobs,base.group_user,1,1,1,1
+access_charges_admin,access.charges.admin,model_prop_charges,base.group_system,1,1,1,1
+access_charges_poweruser,access.charges.poweruser,model_prop_charges,base.group_user,1,1,1,1
+access_charges_user,access.charges.user,model_prop_charges,base.group_user,1,1,1,1
+access_templates_admin,access.templates.admin,model_prop_templates,base.group_system,1,1,1,1
+access_templates_poweruser,access.templates.poweruser,model_prop_templates,base.group_user,1,1,1,1
+access_templates_user,access.templates.user,model_prop_templates,base.group_user,1,1,1,1
+access_credit_admin,access.credit.admin,model_prop_credit,base.group_system,1,1,1,1
+access_credit_poweruser,access.credit.poweruser,model_prop_credit,base.group_user,1,1,1,1
+access_credit_user,access.credit.user,model_prop_credit,base.group_user,1,1,1,1
